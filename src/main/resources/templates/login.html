@@ -1,0 +1,48 @@
+<!--Страница авторизации-->
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="https://www.thymeleaf.org"
+      layout:decorate="~{layout}"
+      lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Krab51</title>
+    <link rel="stylesheet" data-th-href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container-fluid mt-5">
+    <form method="POST" th:action="@{/login}">
+        <div class="mb-3">
+            <div class="mb-3 d-flex justify-content-center align-items-center">
+                <img src="/static/img/krab.ico" alt="" width="108" height="86">
+            </div>
+            <h1 class="h3 form-floating col-md-4 offset-md-4 m-auto">Krab51 application</h1>
+        </div>
+        <div class="mb-3" th:if="${param.error}">
+            <div class="alert alert-danger form-floating col-md-4 offset-md-4 m-auto">
+                <p style="float: none">Неверный логин/пароль</p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="form-floating col-md-4 offset-md-4 m-auto">
+                <input name="username" type="text" class="form-control" id="floatingInput"
+                       placeholder="Имя пользователя">
+                <label for="floatingInput">Введите имя пользователя</label>
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="form-floating col-md-4 offset-md-4 m-auto">
+                <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Пароль">
+                <label for="floatingPassword">Введите пароль</label>
+            </div>
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-info col-md-4 offset-md-4">Войти</button>
+        </div>
+
+    </form>
+
+</div>
+</body>
+</html>

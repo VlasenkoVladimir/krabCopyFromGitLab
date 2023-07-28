@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head data-th-fragment="common_head(title, link)">
+    <title data-th-text="${title} ? ${title} + ' - ' + #{title} : #{title}"></title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="manifest" data-th-href="@{/static/favicon/site.webmanifest}">
+    <link rel="icon" type="image/png" sizes="32x32" data-th-href="@{/static/favicon/favicon-32x32.png}">
+    <link rel="icon" type="image/png" sizes="16x16" data-th-href="@{/static/favicon/favicon-16x16.png}">
+    <link rel="apple-touch-icon" sizes="180x180" data-th-href="@{/static/favicon/apple-touch-icon.png}">
+    <link rel="mask-icon" data-th-href="@{/static/favicon/safari-pinned-tab.svg}">
+    <link rel="stylesheet" data-th-href="@{/webjars/jquery-ui/1.12.1/jquery-ui.css}">
+    <link rel="stylesheet" data-th-href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css}">
+    <link rel="stylesheet" data-th-href="@{/static/css/_common.css}">
+    <data-th-block data-th-replace="${link}"></data-th-block>
+</head>
+<body class="bg-light" data-th-fragment="common_body(block, script)">
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark rounded main-color" data-sec-authorize="isAuthenticated()">
+        <a class="navbar-brand" data-th-href="@{/}">
+            <img src="" data-th-src="@{/static/img/logo.svg}" width="32" height="32" alt="">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain"
+                aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMain">
+            <ul class="navbar-nav mr-auto">
+                <li data-th-each="menuItem : ${@mainMenu.getMenuItems()}" class="nav-item active">
+                    <a class="nav-link" data-th-href="@{${menuItem.path}}" data-th-text="#{${menuItem.name}}"></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <data-th-block data-th-replace="${block}"></data-th-block>
+</div>
+<script data-th-src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+<script data-th-src="@{/webjars/jquery-ui/1.12.1/jquery-ui.min.js}"></script>
+<script data-th-src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+<script data-th-src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+<script data-th-src="@{/static/js/_common/common.js}"></script>
+<data-th-block data-th-replace="${script}"></data-th-block>
+</body>
+</html>

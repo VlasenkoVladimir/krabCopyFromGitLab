@@ -1,0 +1,23 @@
+spring:
+  main:
+    banner-mode: "off"
+  jpa:
+    properties:
+      jakarta:
+        persistence:
+          sharedCache:
+            mode: UNSPECIFIED
+    open-in-view: true
+  flyway:
+    enabled: true
+    validate-on-migrate: true
+  security:
+    user:
+      name: admin
+      password: admin
+      roles: ADMIN
+springdoc:
+  swagger-ui:
+    defaultModelsExpandDepth: -1
+server:
+  forward-headers-strategy: framework

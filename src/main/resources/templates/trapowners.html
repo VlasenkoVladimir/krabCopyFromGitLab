@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Krab51</title>
+    <link rel="stylesheet" data-th-href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-1 mt-1 rounded-2">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="/static/img/krab.ico" alt="" width="30" height="24" class="d-inline-block align-text-top">
+                Krab 51
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Путевки</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/clients">Клиенты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/trapowners">Владельцы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/traps">Ловушки</a>
+                    </li>
+                </ul>
+                <span class="navbar-text">Оператор: Ткаченя Евгений Игоревич</span>
+            </div>
+        </div>
+    </nav>
+</div>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Владельцы</h4>
+                <div id="kraborders" class="card">
+                    <div class="card-header">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Поиск" aria-label="Поиск" aria-describedby="button-addon2">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Поиск</button>
+                            <button type="button" class="btn btn-primary">Добавить</button>
+                        </div>
+                    </div>
+                    <div class="card-body p-0 table-responsive">
+                        <table id="trapownersTable" class="mb-0 table table-hover">
+                            <thead class="thead-dark bg-light">
+                            <tr>
+                                <th>Номер</th>
+                                <th>Название</th>
+                            </tr>
+                            </thead>
+
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer text-muted border-top-0">
+                        <div class="d-flex">
+                            <span id="krabOrdersInfo"></span>
+                            <div class="ms-auto">
+                                <nav id="krabOrdersNav" aria-label="Page navigation example">
+                                    <ul class="pagination m-0">
+                                        <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                            </a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link active" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link disabled" href="#" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+
+<script data-th-src="@{/webjars/jquery/3.6.4/jquery.min.js}"></script>
+<script data-th-src="@{/webjars/popper.js/2.9.3/umd/popper.min.js}"></script>
+<script data-th-src="@{/webjars/bootstrap/5.2.3/js/bootstrap.min.js}"></script>
+<script data-th-src="@{/static/js/TrapOwnersDataTable.js}"></script>
+<script>new TrapOwnersDataTable().init();</script>
+</html>

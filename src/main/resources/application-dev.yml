@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    password:
+  jpa:
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
